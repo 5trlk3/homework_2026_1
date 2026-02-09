@@ -33,7 +33,7 @@ QUnit.module("Тестируем функцию sortByLength", function() {
 
         assert.deepEqual(result, ["a", "b", "c", "d", "d"], "Должны быть возвращены буквы в алфавитном порядке.");
     });
-    QUnit.test("Все примитивные типы вместе (кроме Symbol)", function(assert) {
+    QUnit.test("Все примитивные типы вместе", function(assert) {
         const result = sortByLength([
             "строка",
             123,     
@@ -41,9 +41,10 @@ QUnit.module("Тестируем функцию sortByLength", function() {
             true,         
             false,        
             undefined,    
-            null      
+            null,
+            Symbol(1),       
         ]);
         
-        assert.deepEqual(result, ["123", "999", "null", "true", "false", "строка", "undefined"]);
+        assert.deepEqual(result, ["123", "999", "null", "true", "false", "строка", "Symbol(1)", "undefined"]);
     });
 });

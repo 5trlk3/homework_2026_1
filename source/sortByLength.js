@@ -17,12 +17,6 @@ const sortByLength = (strings = []) => {
         if (item == null) {
             return item === null ? 'null' : 'undefined';
         }
-        if (typeof item === 'symbol') {
-            throw new TypeError(`Символ на ${index} не может быть конвертирован в строку.`);
-        }
-        if (typeof item === 'function') {
-            throw new TypeError(`Функция на ${index} не может быть конвертирован в строку.`);
-        }
         return String(item);
     });
 
