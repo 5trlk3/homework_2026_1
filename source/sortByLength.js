@@ -10,4 +10,4 @@
  * 
  * @returns {Array<String>}
  */
-let sortByLength = (strings) => [...strings].sort( (a, b) => a.length - b.length || a.localeCompare(b) );
+let sortByLength = (strings) => [...strings].sort((a, b) => a.length - b.length || a.localeCompare(b));
