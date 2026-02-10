@@ -17,8 +17,26 @@ const sortByLength = (strings = []) => {
         if (item == null) {
             return item === null ? 'null' : 'undefined';
         }
-        return String(item);
+        return String(item).replace(/[АA]/g, 'A')
+        .replace(/[ВB]/g, 'B')
+        .replace(/[СC]/g, 'C')
+        .replace(/[ЕE]/g, 'E')
+        .replace(/[НH]/g, 'H')
+        .replace(/[КK]/g, 'K')
+        .replace(/[МM]/g, 'M')
+        .replace(/[ОO]/g, 'O')
+        .replace(/[РP]/g, 'P')
+        .replace(/[ТT]/g, 'T')
+        .replace(/[ХX]/g, 'X')
+        .replace(/[аa]/g, 'a')
+        .replace(/[вb]/g, 'b')
+        .replace(/[сc]/g, 'c')
+        .replace(/[еe]/g, 'e')
+        .replace(/[кк]/g, 'k')
+        .replace(/[оo]/g, 'o')
+        .replace(/[рp]/g, 'p')
+        .replace(/[хx]/g, 'x');
     });
 
-    return copyArr.sort((a, b) => a.length - b.length || a.localeCompare(b))
+    return copyArr.sort((a, b) => a.length - b.length || a.localeCompare(b, 'en-US'));
 };

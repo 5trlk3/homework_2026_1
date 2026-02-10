@@ -35,7 +35,7 @@ QUnit.module("Тестируем функцию sortByLength", function() {
     });
     QUnit.test("Все примитивные типы вместе", function(assert) {
         const result = sortByLength([
-            "строка",
+            "string",
             123,     
             999n,     
             true,         
@@ -45,6 +45,11 @@ QUnit.module("Тестируем функцию sortByLength", function() {
             Symbol(1),       
         ]);
         
-        assert.deepEqual(result, ["123", "999", "null", "true", "false", "строка", "Symbol(1)", "undefined"]);
+        assert.deepEqual(result, ["123", "999", "null", "true", "false", "string", "Symbol(1)", "undefined"]);
+    });
+    QUnit.test("Правильно обрабатывает две одинаковые строки, но с буквами C на разных языках.", function(assert) {
+        const result = sortByLength(["Сhicago", "Chicago"]);
+
+        assert.deepEqual(result, ["Chicago", "Chicago"], "Не должно произойти ошибки.");
     });
 });
